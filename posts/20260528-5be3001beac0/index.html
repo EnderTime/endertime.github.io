@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>毫无营养的爬虫一例 | EnderTime's archive</title><meta name="keywords" content="python,lxml,asynico,translators,何意味"><meta name="author" content="死毛宅小时"><meta name="copyright" content="死毛宅小时"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="其实也不爬虫只是ctrl+s了一个html然后调库解析而已想写async还失败了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毫无营养的爬虫一例">
+<meta property="og:url" content="https://endertime.github.io/posts/20260528-5be3001beac0/">
+<meta property="og:site_name" content="EnderTime&#39;s archive">
+<meta property="og:description" content="其实也不爬虫只是ctrl+s了一个html然后调库解析而已想写async还失败了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/EnderTime/picture-cdn/master/img/20220205_bg.jpg">
+<meta property="article:published_time" content="2026-05-28T03:17:07.000Z">
+<meta property="article:modified_time" content="2026-05-28T08:46:44.920Z">
+<meta property="article:author" content="死毛宅小时">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="lxml">
+<meta property="article:tag" content="asynico">
+<meta property="article:tag" content="translators">
+<meta property="article:tag" content="何意味">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/EnderTime/picture-cdn/master/img/20220205_bg.jpg"><link rel="shortcut icon" href="../../img/favicon.ico"><link rel="canonical" href="https://endertime.github.io/posts/20260528-5be3001beac0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="../../css/index.css"><link rel="stylesheet" href="../../https:/cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="../../https:/cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: '../https:/cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: '../https:/cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '毫无营养的爬虫一例',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-05-28 16:46:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="../img/cat_avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="../archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="data-item"><a href="/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="data-item"><a href="../categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('../../https:/raw.githubusercontent.com/EnderTime/picture-cdn/master/img/20220205_bg.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="../index.html">EnderTime's archive</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">毫无营养的爬虫一例</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-28T03:17:07.000Z" title="发表于 2026-05-28 11:17:07">2026-05-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-28T08:46:44.920Z" title="更新于 2026-05-28 16:46:44">2026-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="../../categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>其实也不爬虫只是ctrl+s了一个html然后调库解析而已想写async还失败了</p>
+<span id="more"></span>
+
+<h1 id="莫提威甚"><a href="#莫提威甚" class="headerlink" title="莫提威甚"></a>莫提威甚</h1><p>学习<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-boot#learn">Spring Boot</a>中，打开了其 <code>Api Doc.</code> ，<br>看到大片的英文懒得思考（讲道理智力正常的人类是不是也不会直接看 <code>Api Doc.</code> ）<br>点击 <code>chrome</code> 自带的页面翻译依旧宕机，打开F12看到页面规整得要命（至少我想爬的东西还挺规则），一看又是纯html，于是启动py准备自己写脚本机翻。<br><span style="color:gray; font-style:italic; text-decoration:line-through;"> &gt; 初见端倪</span>  </p>
+<h1 id="么梭多洛基"><a href="#么梭多洛基" class="headerlink" title="么梭多洛基"></a>么梭多洛基</h1><h2 id="解析页面"><a href="#解析页面" class="headerlink" title="解析页面"></a>解析页面</h2><h3 id="前世记忆之xpath"><a href="#前世记忆之xpath" class="headerlink" title="前世记忆之xpath"></a>前世记忆之xpath</h3><p>首先反正只有一个页面于是连 <code>requests</code> 都懒， <code>Ctrl+S</code> 存下来直接开造。<br>启动F12后观察到这些表格元素的规律：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;summary-table two-column-summary&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;table-header col-first&quot;</span>&gt;</span>Package<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;table-header col-last&quot;</span>&gt;</span>Description<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-first even-row-color all-packages-table all-packages-table-tab1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;org/springframework/boot/package-summary.html&quot;</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-last even-row-color all-packages-table all-packages-table-tab1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;block&quot;</span>&gt;</span>Core Spring Boot classes.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>哦哦哦class写得都很有规律不赖，但是其实我完全忘了py怎么解析html，紧急询问了<ruby style="font-style: italic;">鲸爷<rt>deepseek</rt></ruby>。<br><span style="color:gray; font-style:italic; text-decoration:line-through;"> &gt; 警告一次</span><br>好的于是<code>uv add beautifulsoup4 lxml</code>。  </p>
+<p>继续观察到鲸爷说：</p>
+<blockquote>
+<p><em>鲸爷：</em><br>✅ 1. BeautifulSoup（最主流）</p>
+<p>适合：大多数爬虫、页面解析、数据提取</p>
+<p>✅ 优点：易学、容错强<br>❌ 缺点：速度一般（但够用）</p>
+<p>✅ 2. lxml + XPath（速度快、语法强）</p>
+<p>适合：复杂结构、高性能解析</p>
+<p>✅ 优点：快、表达能力强<br>❌ 缺点：XPath 学习成本稍高  </p>
+</blockquote>
+<p>突然前世记忆占领大脑，想起来其实xpath更好用点，毕竟最轮椅的是在F12里右键html可以直接<code>copy xpath</code>还挺方便，虽然一般直接copy的是根目录开始的xpath也就纯对单，不过至少不需要大脑。<br>但是这次要扒同一个页面的这么多东西肯定不用<code>copy xpath</code>，那么找规律启动！<br><span style="color:gray; font-style:italic; text-decoration:line-through;"> &gt; 警告两次</span>  </p>
+<h3 id="笑点-2：class-标签-div-套娃"><a href="#笑点-2：class-标签-div-套娃" class="headerlink" title="笑点+2：class 标签 + div 套娃"></a>笑点+2：class 标签 + div 套娃</h3><p>不难观察到其实<code>F12</code>里有一大片<code>col-first ...table-tab1</code>和<code>col-last ...table-tab1</code>，于是有：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 前面一些 with open 啥的，总之 html := 我ctrl+s的那坨html</span></span><br><span class="line">tree = etree.HTML(html)</span><br><span class="line"></span><br><span class="line">col0_class = <span class="string">&quot;col-first even-row-color all-packages-table all-packages-table-tab1&quot;</span> <span class="comment"># &gt; 笑点解析</span></span><br><span class="line">col1_class = <span class="string">&quot;col-last even-row-color all-packages-table all-packages-table-tab1&quot;</span> <span class="comment"># &gt; 笑点解析</span></span><br><span class="line"></span><br><span class="line">text_col0 = tree.xpath(<span class="string">f&#x27;//div[@class=&quot;<span class="subst">&#123;col0_class&#125;</span>&quot;]/a/text()&#x27;</span>)</span><br><span class="line">text_col1 = tree.xpath(<span class="string">f&#x27;//div[@class=&quot;<span class="subst">&#123;col1_class&#125;</span>&quot;]/div/text()&#x27;</span>)</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">&quot;Package&quot;</span>: text_col0,</span><br><span class="line">    <span class="string">&quot;Description&quot;</span>: text_col1,</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line">df.to_csv(<span class="string">&quot;./test01.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>不出意外也是df哈气报<code>ValueError: All arrays must be of the same length</code>了，嗐，html嘛，数据脏点很正常。<br>看看len：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2026-05-28 09:43:04 [INFO] =&gt; Done text_col0, len: 251</span><br><span class="line">2026-05-28 09:43:04 [INFO] =&gt; Done text_col1, len: 274</span><br></pre></td></tr></table></figure>
+<p><span style="color:gray; font-style:italic; text-decoration:line-through;"> &gt; 这时候甚至还没意识到数字太小</span><br><span style="color:gray; font-style:italic; "> &gt; 哦对了关于logging配置这一块：</span>  </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">logging.basicConfig(</span><br><span class="line">  level=logging.INFO,</span><br><span class="line">  <span class="built_in">format</span>=<span class="string">&quot;%(asctime)s [%(levelname)s] %(message)s&quot;</span>,</span><br><span class="line">  datefmt=<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>对不上那就先<ruby style="font-style: italic;">可视化<rt>printf</rt></ruby>看看从哪里对不上：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">max_len = <span class="built_in">max</span>(<span class="built_in">len</span>(text_col0), <span class="built_in">len</span>(text_col1))</span><br><span class="line">max_str_len_col_0 = <span class="built_in">max</span>(<span class="built_in">map</span>(<span class="built_in">len</span>, text_col0))</span><br><span class="line">max_str_len_col_1 = <span class="built_in">max</span>(<span class="built_in">map</span>(<span class="built_in">len</span>, text_col1))</span><br><span class="line">logger.info(<span class="string">f&quot;=&gt; max_str_len_col_0: <span class="subst">&#123;max_str_len_col_0&#125;</span>&quot;</span>) <span class="comment"># 83</span></span><br><span class="line">logger.info(<span class="string">f&quot;=&gt; max_str_len_col_1: <span class="subst">&#123;max_str_len_col_1&#125;</span>&quot;</span>) <span class="comment"># 122</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./test01.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf8&quot;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(max_len):</span><br><span class="line">    col0_text = text_col0[i] <span class="keyword">if</span> i &lt; <span class="built_in">len</span>(text_col0) <span class="keyword">else</span> <span class="string">&quot;&lt;none&gt;&quot;</span></span><br><span class="line">    col1_text = text_col1[i] <span class="keyword">if</span> i &lt; <span class="built_in">len</span>(text_col1) <span class="keyword">else</span> <span class="string">&quot;&lt;none&gt;&quot;</span></span><br><span class="line"></span><br><span class="line">    fp.write(<span class="string">f&quot;<span class="subst">&#123;col0_text:&lt;&#123;max_str_len_col_0 + <span class="number">2</span>&#125;</span>&#125;:=<span class="subst">&#123;col1_text&#125;</span>\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 总而言之就是 outer join, max_str_len 用来控制 := 的位置对齐</span></span><br></pre></td></tr></table></figure>
+
+<p>观察<code>test01.txt</code>中，发现一些 Description 的内容有点破碎；<br>回头查看页面发现 Description 里可能嵌套一些行内代码格式导致<code>div</code>下还有<code>div</code>，于是 xpath 的<code>text()</code>取的稀里糊涂。</p>
+<p>但是查看页面时发现不对，为什么<code>test01.txt</code>感觉缺了好多行，再查看 F12 ：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-first even-row-color all-packages-table all-packages-table-tab1&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-last even-row-color all-packages-table all-packages-table-tab1&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-first odd-row-color all-packages-table all-packages-table-tab1&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-last odd-row-color all-packages-table all-packages-table-tab1&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>。。。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;... even-row-color ...&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;... odd-row-color ...&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="font-size:48px; font-weight: bold; font-style: italic; background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"> &gt; 猪！！！！！</span><br><span style="color:gray; font-style:italic; text-decoration:line-through;">啊哈时刻</span>  </p>
+<h3 id="🐋-contains-class"><a href="#🐋-contains-class" class="headerlink" title="🐋: contains class"></a>🐋: contains class</h3><p>好吧那还是得看看 class 里有什么的，显然好像选择 <code>col-first</code> 和 <code>col-last</code> 比较好，于是：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text_col0 = tree.xpath(<span class="string">f&#x27;//div[@class=&quot;col-first&quot;]/a/text()&#x27;</span>)</span><br><span class="line">text_col1 = tree.xpath(<span class="string">f&#x27;//div[@class=&quot;col-last&quot;]/div/text()&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>。。。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2026-05-28 09:53:59 [INFO] =&gt; Done text_col0, len: 0</span><br><span class="line">2026-05-28 09:53:59 [INFO] =&gt; Done text_col1, len: 0</span><br></pre></td></tr></table></figure>
+<p>鲸爷救我——</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text_col0 = tree.xpath(<span class="string">f&#x27;//div[contains(@class, &quot;col-first&quot;)]/a/text()&#x27;</span>)</span><br><span class="line">text_col1 = tree.xpath(<span class="string">f&#x27;//div[contains(@class, &quot;col-last&quot;)]/div/text()&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>也是终于把偶数行也爬出来了，但是那个问题还没解决：</p>
+<blockquote>
+<p><em>死亡回放：</em><br>回头查看页面发现Description里可能嵌套一些行内代码格式导致div下还有div，于是xpath的text()取的稀里糊涂。</p>
+</blockquote>
+<h3 id="🐋-string"><a href="#🐋-string" class="headerlink" title="🐋: string(.)"></a>🐋: string(.)</h3><p>依旧鲸爷神力：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">text_col1 = tree.xpath(<span class="string">f&#x27;//div[contains(@class, &quot;<span class="subst">&#123;col1_class&#125;</span>&quot;)]&#x27;</span>)</span><br><span class="line">text_col1 = [x.xpath(<span class="string">&quot;string(.)&quot;</span>).replace(<span class="string">&quot;\n&quot;</span>, <span class="string">&quot; &quot;</span>) <span class="keyword">for</span> x <span class="keyword">in</span> text_col1[<span class="number">1</span>:]]</span><br><span class="line"><span class="comment"># replace 手动丢掉不知道哪里来的换行， [1:] 丢掉 table-header col-last</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><em>鲸爷：</em><br>📌 string(.) 的含义：  </p>
+<ul>
+<li>.：当前节点  </li>
+<li>string()：递归拼接该节点下 所有文本节点  </li>
+</ul>
+</blockquote>
+<h3 id="半场香槟"><a href="#半场香槟" class="headerlink" title="半场香槟"></a>半场香槟</h3><p>ok啊，现在输出也是非常地干净整洁心旷神怡：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.springframework.boot                         := Core Spring Boot classes. </span><br><span class="line">org.springframework.boot.activemq.autoconfigure  := Auto-configuration for ActiveMQ. </span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>速度也挺快的其实完全1s内。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2026-05-28 10:14:21 [INFO] =&gt; Done read</span><br><span class="line">2026-05-28 10:14:21 [INFO] =&gt; Done etree</span><br><span class="line">2026-05-28 10:14:21 [INFO] =&gt; Done text_col0, len: 502</span><br><span class="line">2026-05-28 10:14:21 [INFO] =&gt; Done text_col1, len: 502</span><br><span class="line">2026-05-28 10:14:21 [INFO] =&gt; max_str_len_col_0: 83</span><br><span class="line">2026-05-28 10:14:21 [INFO] =&gt; max_str_len_col_1: 122</span><br><span class="line">2026-05-28 10:14:21 [INFO] =&gt; Done save</span><br></pre></td></tr></table></figure>
+
+<p>那么解析页面就结束了</p>
+<h2 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h2><h3 id="🐋-translators"><a href="#🐋-translators" class="headerlink" title="🐋: translators"></a>🐋: translators</h3><p>翻译感觉暂时还不是我本地小破机能跑的东西，直接怼鲸爷api里做翻译也挺诡异的，于是问鲸爷。<span style="color:gray; font-style:italic;"> &gt; ？</span><br>好的于是问到了：</p>
+<blockquote>
+<p><em>鲸爷：</em>  </p>
+<h3 id="1-translators-⭐推荐"><a href="#1-translators-⭐推荐" class="headerlink" title="1. translators ⭐推荐"></a>1. translators ⭐推荐</h3><p>封装 Google、Bing、百度、有道、DeepL、Yandex 等 30+ 引擎，统一接口。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install translators --upgrade</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> translators <span class="keyword">as</span> ts</span><br><span class="line">result = ts.translate_text(<span class="string">&quot;Hello World&quot;</span>, to_language=<span class="string">&#x27;zh&#x27;</span>, translator=<span class="string">&#x27;bing&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>✅ 零配置、支持切引擎对比</li>
+<li>⚠️ 国内访问 Google 需代理，建议用 <code>translator=&#39;bing&#39;</code> 或 <code>&#39;baidu&#39;</code></li>
+</ul>
+</blockquote>
+<p>不赖，<code>uv add translators</code>，顺手装个<code>tqdm</code>看看速度。  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2%|██                                                                                                   | 10/502 [00:15&lt;12:55,  1.58s/it]</span><br></pre></td></tr></table></figure>
+<p>！？这么慢？！  </p>
+<h3 id="SPOILED-WARNING-烂尾的asynico"><a href="#SPOILED-WARNING-烂尾的asynico" class="headerlink" title="(SPOILED WARNING) 烂尾的asynico"></a>(SPOILED WARNING) 烂尾的asynico</h3><p>于是鬼脑发动，都 web api 了不难想到 <code>asynico</code> ，那么我是否要抓住此生仅有<span style="color:gray; font-style:italic;"> (&gt; ¿)</span>的机会学习一下神秘的异步。<br>其实是发现了：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># in .venv\Lib\site-packages\translators\__init__.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">translate_text</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">  <span class="keyword">if</span> kwargs.get(<span class="string">&#x27;if_use_async&#x27;</span>, <span class="literal">False</span>):</span><br><span class="line">    <span class="keyword">return</span> translate_text_with_async(*args, **kwargs)</span><br><span class="line">  <span class="keyword">return</span> translate_text_with_sync(*args, **kwargs)</span><br></pre></td></tr></table></figure>
+<p>它都做 async 了我岂能不用？</p>
+<p>首先咨询鲸爷：</p>
+<blockquote>
+<p><code>translators</code> 本身是<strong>同步库</strong>，不支持真正的 async/await，但可以通过 <strong>多线程 / 多进程 / 协程包装</strong> 来实现“异步并发翻译多个文本”。下面按<strong>推荐程度</strong>给你几种实战可用的写法。<br>。。。不信  </p>
+</blockquote>
+<p>但是鲸爷给的第一个方案还没怎么听说过，虽然今天完全没有用到但是总之先拉一坨在这里：</p>
+<blockquote>
+<h2 id="✅-推荐方案一：ThreadPoolExecutor（最简单-amp-实用）"><a href="#✅-推荐方案一：ThreadPoolExecutor（最简单-amp-实用）" class="headerlink" title="✅ 推荐方案一：ThreadPoolExecutor（最简单 &amp; 实用）"></a>✅ 推荐方案一：<code>ThreadPoolExecutor</code>（最简单 &amp; 实用）</h2><p>适合 I/O 密集（网络请求），对 <code>ts.translate_text</code> 最友好。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> translators <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">from</span> concurrent.futures <span class="keyword">import</span> ThreadPoolExecutor, as_completed</span><br><span class="line"></span><br><span class="line">texts = [</span><br><span class="line">    <span class="string">&quot;Hello world&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Machine learning is amazing&quot;</span>,</span><br><span class="line">    <span class="string">&quot;How are you today?&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">translate_one</span>(<span class="params">text</span>):</span></span><br><span class="line">    <span class="keyword">return</span> ts.translate_text(</span><br><span class="line">        text,</span><br><span class="line">        to_language=<span class="string">&#x27;zh&#x27;</span>,</span><br><span class="line">        translator=<span class="string">&#x27;bing&#x27;</span>   <span class="comment"># 国内推荐 bing / baidu</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> ThreadPoolExecutor(max_workers=<span class="number">5</span>) <span class="keyword">as</span> executor:</span><br><span class="line">    futures = [executor.submit(translate_one, t) <span class="keyword">for</span> t <span class="keyword">in</span> texts]</span><br><span class="line">    results = [f.result() <span class="keyword">for</span> f <span class="keyword">in</span> as_completed(futures)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> results:</span><br><span class="line">    <span class="built_in">print</span>(r)</span><br></pre></td></tr></table></figure>
+
+<p>✅ 优点  </p>
+<ul>
+<li>不阻塞事件循环  </li>
+<li>代码简单  </li>
+<li>对 <code>translators</code> 最稳定  </li>
+</ul>
+<p>⚠️ 不建议 <code>max_workers &gt; 10</code>，否则容易被目标站点限流。</p>
+</blockquote>
+<h3 id="俺寻思异步"><a href="#俺寻思异步" class="headerlink" title="俺寻思异步"></a>俺寻思异步</h3><p>总之先俺寻思写了一点 <code>async</code> ：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># src_line := [(&lt;Package&gt;:str, &lt;Description&gt;:str), ...]</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">get_one_tgt_line</span>(<span class="params">line</span>):</span></span><br><span class="line">  ts_res = (</span><br><span class="line">    line[<span class="number">0</span>], line[<span class="number">1</span>], </span><br><span class="line">    <span class="keyword">await</span> ts.translate_text(</span><br><span class="line">      line[<span class="number">1</span>], to_language=<span class="string">&#x27;zh&#x27;</span>, translator=<span class="string">&#x27;bing&#x27;</span>,</span><br><span class="line">      if_use_async=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">  <span class="keyword">return</span> ts_res</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">get_all_tgt_line</span>():</span></span><br><span class="line">  tgt_line_task = [get_one_tgt_line(line) <span class="keyword">for</span> line <span class="keyword">in</span> src_line]</span><br><span class="line">  tgt_line = <span class="keyword">await</span> asyncio.gather(*tgt_line_task)</span><br><span class="line">  <span class="keyword">return</span> tgt_line</span><br><span class="line"></span><br><span class="line">tgt_line = asyncio.run(get_all_tgt_line())</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./test02.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf8&quot;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">  <span class="keyword">for</span> line <span class="keyword">in</span> tgt_line:</span><br><span class="line">    fp.write(<span class="string">f&quot;<span class="subst">&#123;line[<span class="number">0</span>]:&lt;<span class="number">85</span>&#125;</span>:=<span class="subst">&#123;line[<span class="number">1</span>]&#125;</span> / <span class="subst">&#123;line[<span class="number">2</span>]&#125;</span>&quot;</span>) <span class="comment"># &gt; 笑点解析</span></span><br></pre></td></tr></table></figure>
+
+<p>再求救鲸爷加了限制同时请求数量：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sem = asyncio.Semaphore(<span class="number">5</span>)  <span class="comment"># 最多 5 个同时运行</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">get_one_tgt_line</span>(<span class="params">line</span>):</span></span><br><span class="line">  <span class="keyword">async</span> <span class="keyword">with</span> sem:</span><br><span class="line">    ts_res = ...</span><br><span class="line">  <span class="keyword">return</span> ts_res</span><br></pre></td></tr></table></figure>
+
+<p>再再求救鲸爷加了进度播报，以及自己补了个统计单个请求耗时的计时：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">    self._value = <span class="number">0</span></span><br><span class="line">    self._lock = asyncio.Lock()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">inc</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> self._lock:</span><br><span class="line">      self._value += <span class="number">1</span></span><br><span class="line">      <span class="keyword">return</span> self._value</span><br><span class="line"></span><br><span class="line"><span class="meta">  @property</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">value</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">return</span> self._value</span><br><span class="line"></span><br><span class="line">counter = Counter()</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">get_one_tgt_line</span>(<span class="params">line</span>):</span></span><br><span class="line">  tic = time()</span><br><span class="line">  <span class="keyword">async</span> <span class="keyword">with</span> sem:</span><br><span class="line">    ts_res = ...</span><br><span class="line">  tac = time()</span><br><span class="line">  done = <span class="keyword">await</span> counter.inc()</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&quot;=&gt; <span class="subst">&#123;done:&gt;<span class="number">3</span>&#125;</span>/<span class="subst">&#123;<span class="built_in">len</span>(src_line)&#125;</span>, spent <span class="subst">&#123;tac - tic:<span class="number">.2</span>f&#125;</span> s&quot;</span>)</span><br><span class="line">  <span class="keyword">return</span> ts_res</span><br></pre></td></tr></table></figure>
+
+<h3 id="完-全-战-败"><a href="#完-全-战-败" class="headerlink" title="完 全 战 败"></a>完 全 战 败</h3><p>启动！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unclosed client session</span><br><span class="line">client_session: &lt;aiohttp.client.ClientSession object at 0x000002032AB4E900&gt;</span><br><span class="line">Unclosed client session</span><br><span class="line">client_session: &lt;aiohttp.client.ClientSession object at 0x000002032A861BD0&gt;</span><br><span class="line">Unclosed client session</span><br><span class="line">client_session: &lt;aiohttp.client.ClientSession object at 0x000002032AB3F390&gt;</span><br><span class="line">Unclosed client session</span><br><span class="line">client_session: &lt;aiohttp.client.ClientSession object at 0x000002032A860F50&gt;</span><br><span class="line">bing aiohttp session closed.</span><br><span class="line">=&gt;   1/502, spent 2.41 s</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;...\test02.py&quot;, line 57, in &lt;module&gt;</span><br><span class="line">    tgt_line = asyncio.run(get_all_tgt_line())</span><br><span class="line">  ...</span><br><span class="line">  File &quot;...\test02.py&quot;, line 54, in get_all_tgt_line</span><br><span class="line">    tgt_line = await asyncio.gather(*tgt_line_task)</span><br><span class="line">               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File &quot;...\test02.py&quot;, line 42, in get_one_tgt_line</span><br><span class="line">    await ts.translate_text(</span><br><span class="line">    ...&lt;2 lines&gt;...</span><br><span class="line">    )</span><br><span class="line">  File &quot;...\.venv\Lib\site-packages\translators\server_async.py&quot;, line 6328, in translate_text</span><br><span class="line">    result = await self.translators_dict[translator](query_text=query_text, from_language=from_language, to_language=to_language, **kwargs)</span><br><span class="line">             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File &quot;...\.venv\Lib\site-packages\translators\server_async.py&quot;, line 122, in _wrapper</span><br><span class="line">    return await func(*args, **kwargs)</span><br><span class="line">           ^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File &quot;...\.venv\Lib\site-packages\translators\server_async.py&quot;, line 294, in _wrapper</span><br><span class="line">    return await func(*args, **&#123;**kwargs, **&#123;&#x27;query_text&#x27;: query_text&#125;&#125;)</span><br><span class="line">           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File &quot;...\.venv\Lib\site-packages\translators\server_async.py&quot;, line 1971, in bing_api</span><br><span class="line">    response = await self.session.post(api_url, headers=self.host_headers, data=payload, timeout=timeout)</span><br><span class="line">               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  ...</span><br><span class="line">aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected</span><br></pre></td></tr></table></figure>
+<p>。。。好的那我们还是用同步方法吧不就十分钟吗</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 502/502 [11:10&lt;00:00,  1.34s/it]</span><br></pre></td></tr></table></figure>
+
+<h3 id="战败结算"><a href="#战败结算" class="headerlink" title="战败结算"></a>战败结算</h3><p>好的也是跑完了哈看看结果<br><img src="!%5B%5D(https://raw.githubusercontent.com/EnderTime/picture-cdn/master/img/20260528_01.png)" alt="我是结果"><br>怎么只有一行？  </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fp.write(<span class="string">f&quot;<span class="subst">&#123;line[<span class="number">0</span>]:&lt;<span class="number">85</span>&#125;</span>:=<span class="subst">&#123;line[<span class="number">1</span>]&#125;</span> / <span class="subst">&#123;line[<span class="number">2</span>]&#125;</span>&quot;</span>) <span class="comment"># &gt; 笑点解析</span></span><br></pre></td></tr></table></figure>
+<p>。。。</p>
+<p>于是急头白脸又写了个脚本把每一行拆开来。<br><img src="!%5B%5D(https://raw.githubusercontent.com/EnderTime/picture-cdn/master/img/20260528_02.png)" alt="拆开来了"><br>好现在好看多了。</p>
+<h1 id="肯克录甚"><a href="#肯克录甚" class="headerlink" title="肯克录甚"></a>肯克录甚</h1><p><span style="font-size:48px; font-weight: bold; font-style: italic; background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"> &gt; 完全猪！！！！！</span>  </p>
+<p>也不能这么说吧应该还是复习了一下xpath啥的也难得捣鼓一下asynico虽然完全没成功。  </p>
+<p><span style="color:gray; font-style:italic; text-decoration:line-through;"> 但是谁还记得我一开始是来学<code>Spring Boot</code>的</span>  </p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../tags/python/">python</a><a class="post-meta__tags" href="../../tags/lxml/">lxml</a><a class="post-meta__tags" href="../../tags/asynico/">asynico</a><a class="post-meta__tags" href="../../tags/translators/">translators</a><a class="post-meta__tags" href="../../tags/%E4%BD%95%E6%84%8F%E5%91%B3/">何意味</a></div><div class="post_share"><div class="social-share" data-image="../../https:/raw.githubusercontent.com/EnderTime/picture-cdn/master/img/20220205_bg.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="../../https:/cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="../../https:/cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="../20220207-67ed7a6b8fd9/"><img class="next-cover" src="../../https:/cdn.jsdelivr.net/gh/EnderTime/picture-cdn/img/somegreen.jpg" onerror="onerror=null;src='../../img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">记一次ubuntu换源踩坑</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="../img/cat_avatar.jpg" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">死毛宅小时</div><div class="author-info__description">一个blog大概吧</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="../archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="card-info-data-item"><a href="/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="../categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/EnderTime"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="../mailto:endertime@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="../tencent:/AddContact/?subcmd=all&amp;uin=2325117519" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">咱就这么一写<br /> 您就这么一听<br /> 能看个乐呵最好啦ᕕ( ᐛ )ᕗ</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%AB%E6%8F%90%E5%A8%81%E7%94%9A"><span class="toc-number">1.</span> <span class="toc-text">莫提威甚</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%88%E6%A2%AD%E5%A4%9A%E6%B4%9B%E5%9F%BA"><span class="toc-number">2.</span> <span class="toc-text">么梭多洛基</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E9%A1%B5%E9%9D%A2"><span class="toc-number">2.1.</span> <span class="toc-text">解析页面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E4%B8%96%E8%AE%B0%E5%BF%86%E4%B9%8Bxpath"><span class="toc-number">2.1.1.</span> <span class="toc-text">前世记忆之xpath</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%91%E7%82%B9-2%EF%BC%9Aclass-%E6%A0%87%E7%AD%BE-div-%E5%A5%97%E5%A8%83"><span class="toc-number">2.1.2.</span> <span class="toc-text">笑点+2：class 标签 + div 套娃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%90%8B-contains-class"><span class="toc-number">2.1.3.</span> <span class="toc-text">🐋: contains class</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%90%8B-string"><span class="toc-number">2.1.4.</span> <span class="toc-text">🐋: string(.)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8A%E5%9C%BA%E9%A6%99%E6%A7%9F"><span class="toc-number">2.1.5.</span> <span class="toc-text">半场香槟</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BF%BB%E8%AF%91"><span class="toc-number">2.2.</span> <span class="toc-text">翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%90%8B-translators"><span class="toc-number">2.2.1.</span> <span class="toc-text">🐋: translators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-translators-%E2%AD%90%E6%8E%A8%E8%8D%90"><span class="toc-number">2.2.2.</span> <span class="toc-text">1. translators ⭐推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPOILED-WARNING-%E7%83%82%E5%B0%BE%E7%9A%84asynico"><span class="toc-number">2.2.3.</span> <span class="toc-text">(SPOILED WARNING) 烂尾的asynico</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E6%8E%A8%E8%8D%90%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9AThreadPoolExecutor%EF%BC%88%E6%9C%80%E7%AE%80%E5%8D%95-amp-%E5%AE%9E%E7%94%A8%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">✅ 推荐方案一：ThreadPoolExecutor（最简单 &amp; 实用）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%BA%E5%AF%BB%E6%80%9D%E5%BC%82%E6%AD%A5"><span class="toc-number">2.3.1.</span> <span class="toc-text">俺寻思异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C-%E5%85%A8-%E6%88%98-%E8%B4%A5"><span class="toc-number">2.3.2.</span> <span class="toc-text">完 全 战 败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%98%E8%B4%A5%E7%BB%93%E7%AE%97"><span class="toc-number">2.3.3.</span> <span class="toc-text">战败结算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%82%AF%E5%85%8B%E5%BD%95%E7%94%9A"><span class="toc-number">3.</span> <span class="toc-text">肯克录甚</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="../posts/20260528-5be3001beac0/" title="毫无营养的爬虫一例"><img src="../https:/raw.githubusercontent.com/EnderTime/picture-cdn/master/img/20220205_bg.jpg" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="毫无营养的爬虫一例"/></a><div class="content"><a class="title" href="../posts/20260528-5be3001beac0/" title="毫无营养的爬虫一例">毫无营养的爬虫一例</a><time datetime="2026-05-28T03:17:07.000Z" title="发表于 2026-05-28 11:17:07">2026-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../posts/20220207-67ed7a6b8fd9/" title="记一次ubuntu换源踩坑"><img src="../https:/cdn.jsdelivr.net/gh/EnderTime/picture-cdn/img/somegreen.jpg" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="记一次ubuntu换源踩坑"/></a><div class="content"><a class="title" href="../posts/20220207-67ed7a6b8fd9/" title="记一次ubuntu换源踩坑">记一次ubuntu换源踩坑</a><time datetime="2022-02-07T03:18:17.000Z" title="发表于 2022-02-07 11:18:17">2022-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../posts/20220205-27cd011ebd53/" title="第一篇blog"><img src="../https:/raw.githubusercontent.com/EnderTime/picture-cdn/master/img/20260528_01.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="第一篇blog"/></a><div class="content"><a class="title" href="../posts/20220205-27cd011ebd53/" title="第一篇blog">第一篇blog</a><time datetime="2022-02-05T02:36:22.000Z" title="发表于 2022-02-05 10:36:22">2022-02-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2026 By 死毛宅小时</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="../../js/utils.js"></script><script src="../../js/main.js"></script><script src="../../https:/cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('../https:/cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div></div></body></html>
